@@ -1,0 +1,112 @@
+header{
+    background-color: chartreuse;
+}
+
+.titulo{
+    font-size: 50px;
+    text-align: center;
+    color: green;
+    font-family:verdana;
+    text-shadow: 4px 4px 5px black;
+}
+h2{
+    color: greenyellow;
+    font-family:courier;
+}
+h3{
+    color: aquamarine;
+    font-family:courier;
+}
+.botonsito{
+    margin-left: 35%;
+    display: block;
+    margin-top: 20px;
+    padding: 10px;
+    width: 30%;
+    background-color: aquamarine;
+    border-radius: 5px;
+    border-color: aquamarine;
+    margin-bottom: 20px;
+}
+
+.seccion1{
+    text-align: center
+}
+.seccion2{
+    text-align: center;
+}
+.seccion3{
+    text-align: center;
+    width: 50%;
+    margin: auto;
+}
+.seccion5{
+    margin:auto;
+    width: 750px;
+}
+
+input{
+    height: 20px;
+    width: 50%;
+}
+
+input, label{
+    margin: auto;
+    display: block;
+    margin-top: 10px;
+}
+img{
+    height: 60px;
+    width: 60px;
+}
+#luna, #tamanio{
+    display: none;
+}
+
+#idtamanio{
+    cursor: pointer;
+    position: absolute;
+    font-size: 30px;
+    top: 4%;
+    margin-left: 7px;
+    color: green;
+}
+
+#idluna{
+    cursor: pointer;
+    position: absolute;
+    font-size: 30px;
+    top: 4%;
+    right: 1%;
+    color: green;
+}
+
+.cambioclaro{
+    transition: 1s;
+    background-color: white;
+    color: black;
+}
+
+.cambiodark{
+    transition: 1s;
+    background-color: rgb(49, 49, 49);
+    color: white;
+}
+
+.tamaniopeque{
+    transition: 1s;
+    font-size: 20px;
+}
+
+.tamaniobig{
+    transition: 1s;
+    font-size: 60px;
+}
+
+.parrafoe{
+    display: none;
+    padding: 15px;
+    border-radius: 3px;
+    background-color: red;
+    color: white;
+}
