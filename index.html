@@ -49,44 +49,59 @@
             <h3>Pruebalo tu mismo</h3>
             <pre>W3schools presenta miles de ejemplos de código.
 
-                Al usar nuestro editor en línea, Pruébelo usted mismo, Puede editar ejemplos y ejecutar código informático experimentalmente, para ver qué funciona y qué no, antes de implementándolo.</pre>
+                Al usar nuestro editor en línea, Pruébelo usted mismo, Puede editar ejemplos y ejecutar código informático experimentalmente, 
+                para ver qué funciona y qué no, antes de implementándolo.</pre>
             <h3>Es 100% gratis</h3>
             <pre>W3Schools es, y siempre será, un programa completamente gratuito Recurso para desarrolladores.</pre>
             </div>
             <hr>
         <div class="seccion3" id="seccion3">
-            <h2>formulario de contacto</h2>
-                <label for="inombre">Ingrese su nombre</label>
-                <input type="text"  id="inombre" placeholder="Ej: Anthony">
+            <h2>REGISTRATE!!!</h2>
+            <p>Te gustaria personalizar el diseño de la pagina? </p>
+    <p>Ingresa los siguientes datos y la personalizacion sera tuya, tienes la opcion de poder registrar a otra persona</p>
+
+                <label for="inombre" class="classlabel">Ingrese su nombre:</label>
+                <input type="text"  id="inombre" class="classinput" placeholder="Ej: Anthony">
                 <p id="cnombre" class="parrafoe">error</p>
-                <label for="iapellido">Ingrese su apellido</label>
-                <input type="text"  id="iapellido" placeholder="Ej: apellido">
-                <p id="capellido" class="parrafoe">error</p>
-                <label for="itelefono">Ingrese su telefono</label>
-                <input type="tel"  id="itelefono" placeholder="Ej: 930549264">
+
+                <label for="itelefono" class="classlabel">Ingrese su telefono:</label>
+                <input type="tel"  id="itelefono" class="classinput" placeholder="Ej: 930549264">
                 <p id="ctelefono" class="parrafoe">error</p>
-                <label for="iemail">Ingrese su email</label>
-                <input type="email"  id="iemail" placeholder="Ej: ejemplo@gmail.com">
+
+                <label for="iemail" class="classlabel">Ingrese su email:</label>
+                <input type="email"  id="iemail" class="classinput" placeholder="Ej: ejemplo@gmail.com">
                 <p id="cemail" class="parrafoe">error</p>
-                <label for="iedad">Ingrese su edad:</label>
-                <input type="number"  id="iedad" placeholder="Ej: 1años">
+
+                <label for="iedad" class="classlabel">Ingrese su edad:</label>
+                <input type="number"  id="iedad" class="classinput" placeholder="Ej: 1años">
                 <p id="cedad" class="parrafoe">error</p>
-                <label for="ipassword">Ingrese su constraseña</label>
-                <input type="text" id="iconstraseña" >
+
+                <label for="ipassword" class="classlabel">Ingrese una constraseña:</label>
+                <input type="password" id="ipassword" class="classinput">
                 <p id="cpassword" class="parrafoe">error</p>
-                <h3>Ingrese su estado civil</h3>
-                <label for="iestadocivil">Casado</label>
-                <input type="radio"  id="iestadocivil" name="radio">
-                <label for="iestadocivil1">Soltero</label>
-                <input type="radio"  id="iestadocivil1" name="radio">
+
+                <h3>Escoja un tema:</h3>
+                <label for="itemaoscuro" class="classlabel">Oscuro:</label>
+                <input type="radio"  id="itemaoscuro" name="radio">
+                <label for="itemaclaro" class="classlabel">Claro:</label>
+                <input type="radio"  id="itemaclaro" name="radio">
                 <p id="cradio" class="parrafoe">error</p>
-                <h3>Ingresa una opcion:</h3>
+
+                <h3>Escoje un color:</h3>
                 <label for="iseleccion"></label>
-                <select id="iseleccion"></select>
+                <select id="iseleccion">
+                    <option value="nin">...</option>
+                    <option value="Rojo">Rojo</option>
+                    <option value="Azul">Azul</option>
+                    <option value="Verde">Verde</option>
+                    <option value="none">Ninguna de las anteriores</option>
+                </select>
                 <p id="cseleccion" class="parrafoe">error</p>
+
                 <h3>Deja un comentario sobre la pagina!!!!</h3>
                 <label for="itextarea"></label>
-                <textarea id="itextarea"></textarea>
+                <textarea id="icomentario"></textarea>
+                <p id="ccomentario" class="parrafoe">error</p>
                 
                 
             <button id="btnRegistrar" class="botonsito">Enviar</button>

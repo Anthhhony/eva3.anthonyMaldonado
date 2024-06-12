@@ -1,23 +1,35 @@
 header{
+    box-shadow: 0 6px 9px rgb(94, 188, 0);
     background-color: chartreuse;
+    padding-block: 1px;
 }
 
 .titulo{
-    font-size: 50px;
+    font-size:45px;
     text-align: center;
-    color: green;
-    font-family:verdana;
-    text-shadow: 4px 4px 5px black;
+    color: rgb(1, 78, 1);
+    font-family:Arial, Helvetica, sans-serif;
+    text-shadow: 1px 1px 2px rgba(11, 255, 11, 0.813), 3px 3px 2px black;
+}
+a{
+    color: rgb(100, 100, 255);
+}
+p, pre{
+    font-family: Arial, Helvetica, sans-serif;
 }
 h2{
-    color: greenyellow;
-    font-family:courier;
+    text-shadow: 0 0 5px rgb(150, 249, 0);
+    color: rgb(150, 249, 0);
+    font-family:Arial, Helvetica, sans-serif;
 }
 h3{
-    color: aquamarine;
-    font-family:courier;
+    text-shadow: 0 0 2px rgb(1, 168, 7);
+    color: rgb(1, 168, 7);
+    font-family:Arial, Helvetica, sans-serif;
+    
 }
 .botonsito{
+    font-family:Arial, Helvetica, sans-serif;
     margin-left: 35%;
     display: block;
     margin-top: 20px;
@@ -27,6 +39,19 @@ h3{
     border-radius: 5px;
     border-color: aquamarine;
     margin-bottom: 20px;
+    box-shadow: 5px 5px rgba(0, 128, 119, 0.377), 5px 5px 5px rgb(0, 0, 0)
+}
+
+.botonsito:hover{
+    transition: 0.3s;
+    border-color: rgb(1, 113, 75);
+    background-color: rgb(1, 113, 75);
+    color: white;
+}
+
+.botonsito:not(:hover){
+    transition: 0.3s;
+    background-color: aquamarine;
 }
 
 .seccion1{
@@ -46,11 +71,20 @@ h3{
 }
 
 input{
+    padding: 5px;
     height: 20px;
     width: 50%;
+    border-radius: 2px;
+}
+
+.classlabel{
+    font-size: 20px;
+    text-shadow: 0 0 3px rgba(40, 165, 44, 0.507);
+    color: rgb(20, 133, 24);
 }
 
 input, label{
+    font-family: Arial, Helvetica, sans-serif;
     margin: auto;
     display: block;
     margin-top: 10px;
@@ -61,24 +95,27 @@ img{
 }
 #luna, #tamanio{
     display: none;
+    
 }
 
 #idtamanio{
     cursor: pointer;
     position: absolute;
-    font-size: 30px;
+    font-size: 55px;
     top: 4%;
-    margin-left: 7px;
+    margin-left: 20px;
     color: green;
+    text-shadow: 1px 1px 2px rgba(11, 255, 11, 0.813), 3px 3px 2px black;
 }
 
 #idluna{
     cursor: pointer;
     position: absolute;
-    font-size: 30px;
+    font-size: 60px;
     top: 4%;
-    right: 1%;
+    right: 3%;
     color: green;
+    text-shadow: 1px 1px 2px rgba(11, 255, 11, 0.813), 3px 3px 2px black;
 }
 
 .cambioclaro{
@@ -89,13 +126,13 @@ img{
 
 .cambiodark{
     transition: 1s;
-    background-color: rgb(49, 49, 49);
+    background-color: rgb(27, 27, 27);
     color: white;
 }
 
 .tamaniopeque{
     transition: 1s;
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .tamaniobig{
@@ -104,9 +141,11 @@ img{
 }
 
 .parrafoe{
+    font-family: Arial, Helvetica, sans-serif;
     display: none;
     padding: 15px;
-    border-radius: 3px;
+    border-radius: 5px;
     background-color: red;
     color: white;
+    box-shadow: 0 0 15px rgb(247, 53, 53);
 }
