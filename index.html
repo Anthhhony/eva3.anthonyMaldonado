@@ -6,7 +6,9 @@
     <title>W3School page</title>
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="assets/js/script.js"></script>
+    <script type="module" src="assets/js/firebase.js"></script>
+    <script type="module" src="assets/js/script.js"></script>
+
 </head>
 <body>
     <header>
@@ -56,9 +58,9 @@
             </div>
             <hr>
         <div class="seccion3" id="seccion3">
-            <h2>REGISTRATE!!!</h2>
-            <p>Te gustaria personalizar el diseño de la pagina? </p>
-    <p>Ingresa los siguientes datos y la personalizacion sera tuya, tienes la opcion de poder registrar a otra persona</p>
+            <h2 id="tRegistro">REGISTRATE!!!</h2>
+            <p id="classp1">Te gustaria personalizar el diseño de la pagina? </p>
+    <p id="classp2">Ingresa los siguientes datos y la personalizacion sera tuya, tienes la opcion de poder registrar a otra persona</p>
 
                 <label for="inombre" class="classlabel">Ingrese su nombre:</label>
                 <input type="text"  id="inombre" class="classinput" placeholder="Ej: Anthony">
@@ -94,18 +96,37 @@
                     <option value="Rojo">Rojo</option>
                     <option value="Azul">Azul</option>
                     <option value="Verde">Verde</option>
-                    <option value="none">Ninguna de las anteriores</option>
+                    <option value="Ninguno">Ninguna de las anteriores</option>
                 </select>
                 <p id="cseleccion" class="parrafoe">error</p>
 
                 <h3>Deja un comentario sobre la pagina!!!!</h3>
-                <label for="itextarea"></label>
+                <label for="icomentario"></label>
                 <textarea id="icomentario"></textarea>
                 <p id="ccomentario" class="parrafoe">error</p>
                 
                 
-            <button id="btnRegistrar" class="botonsito">Enviar</button>
+            <button id="btnRegistrar" class="classinput">Enviar</button>
+            <button id="btnActualizar" class="classinput">Actualizar</button>
         </div>
+        <hr>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Telefono</th>
+                    <th>Correo</th>
+                    <th>Edad</th>
+                    <th>Contraseña</th><!--No deberia de mostrarse este campo pero de todas formas se integra para demostrar que todos los datos se muestran correctamente-->
+                    <th>Tema</th>
+                    <th>Color</th>
+                    <th>Comentario</th>
+                </tr>
+            </thead>
+            <tbody id="tablaindex">
+    
+            </tbody>
+        </table>
         <hr>
     </div>
         <div class="seccion5">
@@ -117,6 +138,6 @@
 
         </div>
     </div>
-
+    <hr>
 </body>
 </html>

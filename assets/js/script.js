@@ -1,4 +1,9 @@
+import { registrarUsuario, recuperarUsuario, actualizarUsuario, eliminarUsuario} from "./promesas.js";
+
+
+
 window.addEventListener("load",()=>{
+
     document.getElementById("luna").addEventListener("click",a=>{
         let idicon = document.getElementById("idluna");
         let cambio = a.target.checked;
@@ -43,11 +48,11 @@ window.addEventListener("load",()=>{
             }
         }
     })
-
-    document.getElementById("btnRegistrar").addEventListener("click",validacion)
+    document.getElementById("btnRegistrar").addEventListener("click",validacion);
+    cargardatos()
+    document.getElementById("btnActualizar").addEventListener("click",actualizacion)
 })
 
-//verifica los return de todas las funciones
 
 const validacion = ()=>{
     const v1 = validarnombre("nombre");
@@ -58,18 +63,171 @@ const validacion = ()=>{
     const v6 = validaradio("oscuro","claro");
     const v7 = validarselect("seleccion")
     const v8 = validarcomentario("comentario")
-    contador = 0
-    for(i=0; 8; i++){
-        console.log(v+i)
+    let lista = [v1,v2,v3,v4,v5,v6,v7,v8];
+    let contador = 0
+    for (let index = 0; index < lista.length; index++) {
+        const el = lista[index];
+        if(el == true){
+            contador += 1
+        }
+        else{
+            return false
+            
+        }
     }
+    if(contador==8){
+        registrar()
+    }
+    else{
+        return false
+    }
+    document.getElementById("btnActualizar").disabled = ""
 }
 
-const validacionDeEnvio = ()=>{
-    
+
+//<---------------------------------------CRUD--------------------------------------------------->
+
+
+const registrar = ()=>{
+    let valornombre = document.getElementById("inombre").value
+    let valortel = document.getElementById("itelefono").value
+    let valoremail = document.getElementById("iemail").value
+    let valoredad = document.getElementById("iedad").value
+    let valorpass = document.getElementById("ipassword").value
+    let valortema = valorradio()
+    let valorselect = document.getElementById("iseleccion").value
+    let valorcom = document.getElementById("icomentario").value
+
+    let objeto = {
+        nombre:valornombre,
+        telefono:valortel,
+        correo:valoremail,
+        edad:valoredad,
+        password:valorpass,
+        tema:valortema,
+        color:valorselect,
+        comentario:valorcom
+    }
+
+    registrarUsuario(objeto).then(()=>{
+        alert("Se registro correctamente");
+        cargardatos()
+    }).catch()
+}
+
+const cargardatos = ()=>{
+    recuperarUsuario().then((usuario)=>{
+        let tabla = ""
+        usuario.forEach((u) => {
+            tabla += "<tr>";
+            tabla += "<td>"+u.nombre+"</td>"
+            tabla += "<td>"+u.telefono+"</td>"
+            tabla += "<td>"+u.correo+"</td>"
+            tabla += "<td>"+u.edad+"</td>"
+            tabla += "<td>"+u.password+"</td>"
+            tabla += "<td>"+u.tema+"</td>"
+            tabla += "<td>"+u.color+"</td>"
+            tabla += "<td>"+u.comentario+"</td>"
+            tabla += "<td><button id='UPD"+u.id+"'>Actualizar</button></td>"
+            tabla += "<td><button id='DEL"+u.id+"'>Eliminar</button></td>"
+            tabla += "</tr>"
+        });
+        document.getElementById("tablaindex").innerHTML = tabla
+        document.getElementById("btnActualizar").addEventListener("click",()=>{
+            
+        })
+        usuario.forEach((u)=>{
+            let id = document.getElementById("UPD"+u.id)
+            id.addEventListener("click",()=>{
+
+                document.getElementById("inombre").value = u.nombre;
+                document.getElementById("itelefono").value = u.telefono;
+                document.getElementById("iemail").value = u.correo;
+                document.getElementById("iedad").value = u.edad;
+                document.getElementById("ipassword").value = u.password;
+                document.getElementById("iseleccion").value = u.color;
+                document.getElementById("icomentario").value = u.comentario;
+                document.getElementById("btnActualizar").value = u.id;
+                
+                document.getElementById("tRegistro").innerText = "ACTUALIZACION!!!"
+                document.getElementById("classp1").innerText = "Ahora vas a actualizar"
+                document.getElementById("classp2").innerText = "Tienes la posibilidad de cambiar los datos que allas ingresado previamente"
+                document.getElementById("btnRegistrar").style.display = "none"
+                document.getElementById("btnActualizar").style.display = "block"
+            })
+            let btnEliminar = document.getElementById("DEL"+u.id);
+            btnEliminar.addEventListener("click",()=>{
+                if(confirm("seguro que quieres eliminar a "+u.nombre+"?")){
+                    eliminarUsuario(u.id).then(()=>{
+                        cargardatos()
+                        alert("Eliminacion completa")
+                    })
+                }
+                else{
+                    alert("Cancelaste la eliminacion")
+                }
+            })
+        })
+    })
+}
+const actualizacion = ()=>{
+    let valornombre = document.getElementById("inombre").value
+    let valortel = document.getElementById("itelefono").value
+    let valoremail = document.getElementById("iemail").value
+    let valoredad = document.getElementById("iedad").value
+    let valorpass = document.getElementById("ipassword").value
+    let valortema = valorradio()
+    let valorselect = document.getElementById("iseleccion").value
+    let valorcom = document.getElementById("icomentario").value
+
+    let objeto = {
+        nombre:valornombre,
+        telefono:valortel,
+        correo:valoremail,
+        edad:valoredad,
+        password:valorpass,
+        tema:valortema,
+        color:valorselect,
+        comentario:valorcom
+    }
+
+    let id = document.getElementById("btnActualizar");
+    id.disabled= "True"
+    console.log(id.value)
+    actualizarUsuario(objeto,id.value).then(()=>{
+        cargardatos()
+        alert("Se actualizo correctamente")
+        document.getElementById("btnRegistrar").style.display = "block"
+        document.getElementById("btnActualizar").style.display = "none"
+        document.getElementById("tRegistro").innerText = "REGISTRATE!!!"
+        document.getElementById("classp1").innerText = "Te gustaria personalizar el diseño de la pagina?"
+        document.getElementById("classp2").innerText = "Ingresa los siguientes datos y la personalizacion sera tuya, tienes la opcion de poder registrar a otra persona"
+
+
+})
+
+
 }
 
 //<---------------------------------------Validaciones primarias--------------------------------------------------->
+//Las validaciones primarias son ls funciones las cuales validan si el campo estara correcto o erroneo, aparte que estas mismas permiten el paso al envio de la tabla
 
+function valorradio(){
+    let idradio1 = document.getElementById("itemaoscuro");
+    let idradio2 = document.getElementById("itemaclaro");
+    let vradio1 = idradio1.checked;
+    let vradio2 = idradio2.checked;
+    let v1 = "tema oscuro"
+    let v2 = "tema claro"
+    if(validaradio("oscuro","claro")==true){
+        if(vradio1==true){
+            return v1
+        }
+        else if (vradio2==true){
+            return v2
+        }
+    }
+}
 
 function validarnombre(campo){
     let idnombre = document.getElementById("i"+campo);
@@ -213,7 +371,7 @@ function validarcomentario(campo){
 
 
 //<---------------------------------------Validaciones segundarias--------------------------------------------------->
-
+//Las validaciones segundarias son las que corrijen cualquier opcion/caracter no deseado y estas mismas funciones permiten mostrarle el error al usuario
 
 function validarOpSelection(id,parrafo,valor){
     if(valor=="nin"){
